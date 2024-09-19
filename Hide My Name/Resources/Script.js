@@ -20,3 +20,9 @@ function openPreferences() {
 }
 
 document.querySelector("button.open-preferences").addEventListener("click", openPreferences);
+
+document.querySelector("#locale-picker").addEventListener("change", function() {
+    const selectedLocale = this.value;
+    // Send the selected locale to the extension
+    webkit.messageHandlers.controller.postMessage({ action: "locale-changed", locale: selectedLocale });
+});

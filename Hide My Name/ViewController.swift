@@ -43,15 +43,25 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if (message.body as! String != "open-preferences") {
-            return;
-        }
-
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-            DispatchQueue.main.async {
-                NSApplication.shared.terminate(nil)
+        if let messageBody = message.body as? [String: Any], let action = messageBody["action"] as? String {
+            if action == "open-preferences" {
+                SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
+                    DispatchQueue.main.async {
+                        NSApplication.shared.terminate(nil)
+                    }
+                }
+            } else if action == "locale-changed", let locale = messageBody["locale"] as? String {
+                // Save locale to shared UserDefaults
+                print("changed locale to \(locale)")
+                storeLocaleInUserDefaults(locale: locale)
             }
         }
     }
-
+    
+    @IBAction func storeLocaleInUserDefaults(locale: String) {
+        if let sharedDefaults = UserDefaults(suiteName: "8HVQYZSB2F.Hide-My-Name") {
+            sharedDefaults.set(locale, forKey: "selectedLocale")
+            sharedDefaults.synchronize() // Ensures the value is saved immediately
+        }
+    }
 }

@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D18FFA02C9C08230067267F /* Hide My Name Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3D18FF9F2C9C08230067267F /* Hide My Name Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3D87A57E2C9C0BB100AD03D7 /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = 3D87A57D2C9C0BB100AD03D7 /* Fakery */; };
+		3D87A6142C9C12AD00AD03D7 /* Hide My Name Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3D18FF9F2C9C08230067267F /* Hide My Name Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3D18FFA12C9C08230067267F /* PBXContainerItemProxy */ = {
+		3D87A6152C9C12AD00AD03D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3D18FF7B2C9C08220067267F /* Project object */;
 			proxyType = 1;
@@ -21,13 +22,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3D18FFB82C9C08230067267F /* Embed Foundation Extensions */ = {
+		3D87A6172C9C12AD00AD03D7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				3D18FFA02C9C08230067267F /* Hide My Name Extension.appex in Embed Foundation Extensions */,
+				3D87A6142C9C12AD00AD03D7 /* Hide My Name Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D87A57E2C9C0BB100AD03D7 /* Fakery in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +90,7 @@
 			children = (
 				3D18FF852C9C08220067267F /* Hide My Name */,
 				3D18FFA32C9C08230067267F /* Hide My Name Extension */,
+				3D87A6132C9C12AD00AD03D7 /* Frameworks */,
 				3D18FF842C9C08220067267F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,6 +104,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3D87A6132C9C12AD00AD03D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,12 +121,12 @@
 				3D18FF7F2C9C08220067267F /* Sources */,
 				3D18FF802C9C08220067267F /* Frameworks */,
 				3D18FF812C9C08220067267F /* Resources */,
-				3D18FFB82C9C08230067267F /* Embed Foundation Extensions */,
+				3D87A6172C9C12AD00AD03D7 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3D18FFA22C9C08230067267F /* PBXTargetDependency */,
+				3D87A6162C9C12AD00AD03D7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				3D18FF852C9C08220067267F /* Hide My Name */,
@@ -145,6 +155,7 @@
 			);
 			name = "Hide My Name Extension";
 			packageProductDependencies = (
+				3D87A57D2C9C0BB100AD03D7 /* Fakery */,
 			);
 			productName = "Hide My Name Extension";
 			productReference = 3D18FF9F2C9C08230067267F /* Hide My Name Extension.appex */;
@@ -177,6 +188,9 @@
 			);
 			mainGroup = 3D18FF7A2C9C08220067267F;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3D87A57C2C9C0BB100AD03D7 /* XCRemoteSwiftPackageReference "Fakery" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3D18FF842C9C08220067267F /* Products */;
 			projectDirPath = "";
@@ -223,10 +237,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3D18FFA22C9C08230067267F /* PBXTargetDependency */ = {
+		3D87A6162C9C12AD00AD03D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3D18FF9E2C9C08230067267F /* Hide My Name Extension */;
-			targetProxy = 3D18FFA12C9C08230067267F /* PBXContainerItemProxy */;
+			targetProxy = 3D87A6152C9C12AD00AD03D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -248,7 +262,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -279,7 +293,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -424,6 +438,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Hide My Name";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -431,7 +446,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -459,6 +474,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Hide My Name";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -466,7 +482,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -512,6 +528,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D87A57C2C9C0BB100AD03D7 /* XCRemoteSwiftPackageReference "Fakery" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vadymmarkov/Fakery";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D87A57D2C9C0BB100AD03D7 /* Fakery */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D87A57C2C9C0BB100AD03D7 /* XCRemoteSwiftPackageReference "Fakery" */;
+			productName = Fakery;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3D18FF7B2C9C08220067267F /* Project object */;
 }
