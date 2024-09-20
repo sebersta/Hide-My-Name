@@ -83,8 +83,8 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
     func fetchLocaleInUserDefaults() -> String {
         if let sharedDefaults = UserDefaults(suiteName: "8HVQYZSB2F.Hide-My-Name") {
             let locale = sharedDefaults.string(forKey: "selectedLocale")
-            return locale ?? "en-UK"
+            return locale ?? "en-GB"
         }
-        return "en-UK"
+        return "en-GB"
     }
 }
