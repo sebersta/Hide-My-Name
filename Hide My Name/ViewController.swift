@@ -43,25 +43,48 @@ class ViewController: NSViewController, WKNavigationDelegate, WKScriptMessageHan
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if let messageBody = message.body as? [String: Any], let action = messageBody["action"] as? String {
-            if action == "open-preferences" {
-                SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
-                    DispatchQueue.main.async {
-                        NSApplication.shared.terminate(nil)
-                    }
+        guard let messageBody = message.body as? [String: Any], let action = messageBody["action"] as? String else {
+            return
+        }
+        
+        switch action {
+        case "open-preferences":
+            SFSafariApplication.showPreferencesForExtension(withIdentifier: extensionBundleIdentifier) { error in
+                DispatchQueue.main.async {
+                    NSApplication.shared.terminate(nil)
                 }
-            } else if action == "locale-changed", let locale = messageBody["locale"] as? String {
-                // Save locale to shared UserDefaults
-                print("changed locale to \(locale)")
+            }
+            
+        case "locale-changed":
+            if let locale = messageBody["locale"] as? String {
+                print("Changed locale to \(locale)")
                 storeLocaleInUserDefaults(locale: locale)
             }
+            
+        case "fetch-locale":
+            let locale = fetchLocaleInUserDefaults()
+            print("Fetched locale: \(locale)")
+            let jsScript = "document.getElementById('locale-picker').value = '\(locale)'"
+            message.webView?.evaluateJavaScript(jsScript, completionHandler: nil)
+            
+        default:
+            break
         }
     }
+    
     
     @IBAction func storeLocaleInUserDefaults(locale: String) {
         if let sharedDefaults = UserDefaults(suiteName: "8HVQYZSB2F.Hide-My-Name") {
             sharedDefaults.set(locale, forKey: "selectedLocale")
             sharedDefaults.synchronize() // Ensures the value is saved immediately
         }
+    }
+    
+    func fetchLocaleInUserDefaults() -> String {
+        if let sharedDefaults = UserDefaults(suiteName: "8HVQYZSB2F.Hide-My-Name") {
+            let locale = sharedDefaults.string(forKey: "selectedLocale")
+            return locale ?? "en-UK"
+        }
+        return "en-UK"
     }
 }

@@ -16,7 +16,7 @@ function show(enabled, useSettingsInsteadOfPreferences) {
 }
 
 function openPreferences() {
-    webkit.messageHandlers.controller.postMessage("open-preferences");
+    webkit.messageHandlers.controller.postMessage({ action: "open-preferences" });
 }
 
 document.querySelector("button.open-preferences").addEventListener("click", openPreferences);
@@ -26,3 +26,9 @@ document.querySelector("#locale-picker").addEventListener("change", function() {
     // Send the selected locale to the extension
     webkit.messageHandlers.controller.postMessage({ action: "locale-changed", locale: selectedLocale });
 });
+
+function fetchLocale() {
+    webkit.messageHandlers.controller.postMessage({ action: "fetch-locale"});
+}
+
+document.addEventListener("DOMContentLoaded", fetchLocale);
