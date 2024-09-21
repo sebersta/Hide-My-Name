@@ -39,7 +39,5 @@ function insertIntoFocusedElement(firstName, lastName, fullName) {
 
         var changeEvent = new Event('change', { bubbles: true });
         focusedElement.dispatchEvent(changeEvent);
-    } else {
-        alert("Please focus on the text field to fill in the name.");
     }
 }
