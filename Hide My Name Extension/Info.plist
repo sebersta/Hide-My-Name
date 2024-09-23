@@ -42,6 +42,6 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableDescription</key>
-	<string>This is Hide My Name Extension. You should tell us what your extension does here.</string>
+	<string>Generate random names.</string>
 </dict>
 </plist>
