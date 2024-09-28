@@ -18,7 +18,7 @@
 > A Cypherpunk's Manifesto  
 > Eric Hughes  
 
-In Safari, left click on the text input area. Select “Hide My Name” from the dropdown menu. This action will automatically generate a random name for you. 
+To generate names, control-click the text input area in Safari, and then choose Hide My Name from the shortcut menu.
 
 ## Download
 
